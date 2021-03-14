@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DocumentGenerationSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="300">
-    <Grid>
+        Title="MainWindow" Height="515" Width="365" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
 
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF232D3E"/>
+            <GradientStop Color="#FF1D222C" Offset="1"/>
+            <GradientStop Color="#FF1D222C" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="ToolBarButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+
+        <Style x:Key="ToolBarTextBlock" TargetType="TextBlock">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="10, 0, 0, 0"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid x:Name="ToolBar" Grid.Row="0">
+            <TextBlock Text="Авторизация" Style="{StaticResource ToolBarTextBlock}" />
+            <StackPanel Orientation="Horizontal" Height="32" HorizontalAlignment="Right">
+                <Button x:Name="BtnMinimize" Width="32" Height="32" ToolTip="Свернуть" Style="{StaticResource ToolBarButton}" >
+                    <Canvas IsHitTestVisible="False">
+                        <Line X1="6" Y1="12" X2="16" Y2="12" Stroke="White" Canvas.Left="-11" Width="22" Height="24" Canvas.Top="-12"/>
+                    </Canvas>
+                </Button>
+                <Button x:Name="BtnClose" Width="32" Height="32" ToolTip="Закрыть" Style="{StaticResource ToolBarButton}">
+                    <Canvas IsHitTestVisible="False">
+                        <Line X1="6" Y1="6" X2="18" Y2="18" Stroke="White" Canvas.Left="-11" Width="22" Height="24" Canvas.Top="-12"/>
+                        <Line X1="18" Y1="6" X2="6" Y2="18" Stroke="White" Canvas.Left="-11" Width="22" Height="24" Canvas.Top="-12"/>
+                    </Canvas>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
     </Grid>
+
 </Window>
